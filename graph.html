@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+jdlkjlaga
+<p>dlkajfla</p>
+</body>
+
+
+<script>
+    var paragraphs = document.getElementsByTagName("p");
+    for (var i = 0; i < paragraphs.length; i++) {
+        var paragraph = paragraphs.item(i);
+        paragraph.style.setProperty("color", "orange", null);
+    }
+
+    d3.select("body").transition()
+            .style("background-color", "black");
+</script>
+</html>
