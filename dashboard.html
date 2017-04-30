@@ -30,11 +30,13 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 	<script type="text/javascript">
-		 $.getJSON('http://en.wikipedia.org/w/api.php?action=parse&page=google&prop=text&format=json&callback=?', function(json) { 
-			$('#wikiInfo').html(json.parse.text.*); 
-			$("#wikiInfo").find("a:not(.references a)").attr("href", function(){ return "http://www.wikipedia.org" + $(this).attr("href");}); 
-			$("#wikiInfo").find("a").attr("target", "_blank"); 
-		  });
+		 var searchTerm="toyota";
+			var url="http://en.wikipedia.org/w/api.php?action=parse&format=json&page=" + searchTerm+"&redirects&prop=text&callback=?";
+			$.getJSON(url,function(data){
+			  wikiHTML = data.parse.text["*"];
+			  $wikiDOM = $("<document>"+wikiHTML+"</document>");
+			  $("#result").append($wikiDOM.find('#infobox').html());
+			});
 	</script>
 </head>
 <body>
@@ -197,9 +199,7 @@
                                      
                                     </a>
                                 </div>
-                                <p class="description text-center"> Lamborghini Mercy 
-                                                    Your chick she so thirsty 
-                                                    I'm in that two seat Lambo
+                                <p id="infobox" class="description text-center"> The peregrine falcon (Falco peregrinus), also known as the peregrine, and historically as the duck hawk in North America, is a widespread bird of prey in the family Falconidae. A large, crow-sized falcon, it has a blue-grey back, barred white underparts, and a black head. As is typical of bird-eating raptors, peregrine falcons are sexually dimorphic, females being considerably larger than males. The peregrine is renowned for its speed, reaching over 320 km/h (200 mph) during its characteristic hunting stoop (high speed dive), making it the fastest member of the animal kingdom. According to a National Geographic TV programme, the highest measured speed of a peregrine falcon is 389 km/h (242 mph).
                                 </p>
                             </div>
                             
