@@ -1,15 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>GeneX</title>
+    <title>GeneX</title>
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-
 
     <!-- Bootstrap core CSS     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -20,18 +19,11 @@
     <!--  Light Bootstrap Table core CSS    -->
     <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
 
-
-
-
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
-
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -43,15 +35,16 @@
         .ghbtns { position: relative; top: 4px; margin-left: 5px; }
         a { color: #0077ff; }
     </style>
+    <style>
+        html, body{padding: 0; margin: 0; background-color: black;}
+    </style>
 </head>
 <body>
 
 <div class="wrapper">
     <div class="sidebar" data-color="black" data-image="assets/img/sidebar-2.jpg">
 
-   
-
-    	<div class="sidebar-wrapper">
+        <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">
                     <img src="assets\img\genex.png" style="width:80%;border-radius: 25px;"/>
@@ -89,9 +82,8 @@
                         <p>Possible cause analysis</p>
                     </a>
                 </li>
-
             </ul>
-    	</div>
+        </div>
     </div>
 
     <div class="main-panel">
@@ -106,136 +98,100 @@
                     </button>
                     <a class="navbar-brand" href="#">GeneX - We Refine the World</a>
                 </div>
-
             </div>
         </nav>
-
 
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                    <center>
+                        <div class="col-md-12">
+                            <font color="#d3d3d3" size="3">GeneX is an online platform for analysing and visualizing the gene population, gene flow and local adaptation patterns of different species.
+                            </font>
+                        </div>
+                    </center><br><br>
+                    <div class="col-md-12">
+                        <font color="#d3d3d3" size="5">Features
+                        </font>
+                    </div><br><br>
                     <div class="col-md-4">
                         <div class="card card-user">
-                           <div class="image">
-                                <img src="https://blog.wildlife.virginia.gov/wp-content/uploads/2016/03/PEFA-Habitat-400x300.jpg?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
-                            </div>
-							<div class="content">
-                                <div class="author">
-                                     <a href="#">
-                                    <img class="avatar border-gray" src="assets/img/falcon.jpg" alt="..."/>
-										<h4 class="title">Peregrine Falcon<br />
-                                         <small>Falco peregrinus</small>
-                                      </h4>
-                                     
-                                    </a>
-                                </div>
-                                <p id="infobox" class="description text-center"> The peregrine falcon (Falco peregrinus), also known as the peregrine, and historically as the duck hawk in North America, is a widespread bird of prey in the family Falconidae. A large, crow-sized falcon, it has a blue-grey back, barred white underparts, and a black head. As is typical of bird-eating raptors, peregrine falcons are sexually dimorphic, females being considerably larger than males. The peregrine is renowned for its speed, reaching over 320 km/h (200 mph) during its characteristic hunting stoop (high speed dive), making it the fastest member of the animal kingdom. According to a National Geographic TV programme, the highest measured speed of a peregrine falcon is 389 km/h (242 mph).
-                                </p>
-								
-                            </div>
-                            
-                        </div>
-						
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Twitter Feed</h4>
-                            </div>
-                            <div class="content">
-					            <a class="twitter-timeline"  href="https://twitter.com/hashtag/peregrine" data-widget-id="859136246412525570">#peregrine Tweets</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-							</div>
-                        </div>
-                    
-                    </div>
-
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Behavior Map</h4>
-                            </div>
-                            <div class="content">
-								<p id="infobox" class="description text-left">The chart given depicts the information on the number of occurunces of the given species throughout the given timeline. These are the general sightings that has been marked so far for each year that went on.</p>
-                                <canvas id="chartCanvas" style="width:100%;"></canvas><br>
-								<p id="infobox" class="description text-left">The map given gives the picture of the species and the migrations and interactions of clusters through the use of heat maps. You can use the slider to visit any temporal value and the map will show the sightings and locations in a heat map. Play, Pause and Reset allows you to automatically play and view the process of the migrations and interactions.<p>
-								<div id="slider" ></div>
-								<button onclick="play()">Play</button>
-								<button onclick="pause()">Pause</button>
-								<button onclick="reset()">Reset</button>
-								<div id="map"></div>
-                            </div>
+                            <br>
+                            <center> <img src="assets/img/2.png" height="190px" weight="100px" alt="..."/></center>
+                            <br><br>
+                            <center><h4 class="title"><b>Migration Analysis</b><br/></h4></center><br>
+                            <p id="infobox" class="description text-center"> Migration analysis section maps the migration patterns with the gene flow patterns.
+                                <br><br><br>
+                            </p>
                         </div>
                     </div>
-					
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <br>
+                            <center> <img src="assets/img/1.png" height="185px" weight="100px" alt="..."/></center>
+                            <br><br>
+                            <center><h4 class="title"><b>Climate Analysis</b><br/></h4></center><br>
+                            <p id="infobox" class="description text-center"> In this section, we try to map the climate changes with the gene flow patterns.
+                            </p><br><br>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <br>
+                            <center><img src="assets/img/1.png" height="185px" weight="100px" alt="..."/></center>
+                            <br><br>
+                            <center><h4 class="title"><b>Population Analysis</b><br/></h4></center><br>
+                            <p id="infobox" class="description text-center"> Population analysis provides the analysis on the impact of human population growth on gene flow.
+                            </p><br><br>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <br>
+                            <center> <img src="assets/img/1.png" height="185px" weight="100px" alt="..."/></center>
+                            <br><br>
+                            <center><h4 class="title"><b>Cause Analysis</b><br/></h4></center><br>
+                            <p id="infobox" class="description text-center"> Cause Analysis is powered by the social networking based crowd sourcing. Through the casue analysis we try to identify the possible casuses for different situations for the given species with time.
+                            </p><br>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-
-
-            </div>    
         </div>
         <center>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav class="pull-left">
+                        <ul>
+                            <li>
+                                <a href="https://2017.spaceappschallenge.org/challenges/our-ecological-neighborhood/where-genes-flow/teams/codon/project">
+                                    Team Codon on NASA International SpaceApps 2017
+                                </a>
+                            </li>
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="https://2017.spaceappschallenge.org/challenges/our-ecological-neighborhood/where-genes-flow/teams/codon/project">
-                               Team Codon on NASA International SpaceApps 2017
-                            </a>
-                        </li>
-
-                    </ul>
-                </nav>
-            </div>
-        </footer>
+                        </ul>
+                    </nav>
+                </div>
+            </footer>
         </center>
     </div>
 </div>
-
+</div>
 
 </body>
+<!--   Core JS Files   -->
+<!--<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>-->
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<!--  Checkbox, Radio & Switch Plugins -->
+<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
 
-    <!--   Core JS Files   -->
-    <!--<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>-->
-	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<!--  Charts Plugin -->
+<script src="assets/js/chartist.min.js"></script>
 
-	<!--  Checkbox, Radio & Switch Plugins -->
-	<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
+<!--  Notifications Plugin    -->
+<script src="assets/js/bootstrap-notify.js"></script>
 
-	<!--  Charts Plugin -->
-	<script src="assets/js/chartist.min.js"></script>
-
-    <!--  Notifications Plugin    -->
-    <script src="assets/js/bootstrap-notify.js"></script>
-
-    
-
-    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-	<script src="assets/js/light-bootstrap-dashboard.js"></script>
-
-
-	<script src="leaflet_heat.js"></script>
-
-	<!--<script src="birds.js"></script>-->
-	<script src="whale.js"></script>
-	<script src="falconOc.js"></script>
-	<script src="chart.js"></script>
-	<script src="custom.js"></script>
-	<script type="text/javascript">
-    	$(document).ready(function(){
-
-        	demo.initChartist();
-
-        	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
-            },{
-                type: 'info',
-                timer: 4000
-            });
-
-    	});
-	</script>
-
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="assets/js/light-bootstrap-dashboard.js"></script>
 </html>
