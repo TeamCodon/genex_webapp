@@ -42,20 +42,42 @@
     </style>
     <script src="../tweetdata.js"></script>
 
-    <script>
+
+    <script type="text/javascript">
+        var value = 1985;
+        var earth = null;
+        var marker2 = null;
+        var marker_list = [];
         function initialize() {
             var options = {atmosphere: true, center: [0, 0], zoom: 0};
-            var earth = new WE.map('earth_div', options);
+            earth = new WE.map('earth_div', options);
             WE.tileLayer('http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg', {
                 minZoom: 0,
                 maxZoom: 5,
                 attribution: 'Team Codon'
             }).addTo(earth);
             for (i = 0; i <  tweetPoints.length; i++) {
-                var marker2 = WE.marker([ tweetPoints[i][1],tweetPoints[i][2]]).addTo(earth);
-                marker2.bindPopup(tweetPoints[i][3], {maxWidth: 120, closeButton: false});
+                if (tweetPoints[i][0] <= value) {
+                    marker2 = WE.marker([tweetPoints[i][1], tweetPoints[i][2]]).addTo(earth);
+                    marker2.bindPopup(tweetPoints[i][3], {maxWidth: 220, closeButton: true});
+                    marker_list.push(marker2);
+                }
             }
-            earth.setView([51.505, 0], 1);
+            earth.setView([51.505, 0], 2);
+        }
+        function showValue(newValue) {
+            document.getElementById("year").innerHTML=newValue;
+            value = newValue;
+            for (j = 0; j < marker_list.length; j++){
+                marker_list[j].removeFrom(earth);
+            }
+            for (i = 0; i < tweetPoints.length; i++) {
+                if (tweetPoints[i][0] <= value) {
+                    var marker  = WE.marker([tweetPoints[i][1], tweetPoints[i][2]]).addTo(earth);
+                    marker.bindPopup(tweetPoints[i][3], {maxWidth: 220, closeButton: true});
+                    marker_list.push(marker);
+                }
+            }
         }
     </script>
     <style>
@@ -78,31 +100,31 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="index.html">
+                    <a href="../index.html">
                         <i class="pe-7s-graph"></i>
                         <p>Home</p>
                     </a>
                 </li>
                 <li>
-                    <a href="pages/migrationImpact.html">
+                    <a href="migrationImpact.html">
                         <i class="pe-7s-note2"></i>
                         <p>Migration Analysis</p>
                     </a>
                 </li>
                 <li>
-                    <a href="pages/climateImpact.html">
+                    <a href="climateImpact.html">
                         <i class="pe-7s-note2"></i>
                         <p>Impact of Climate Changes analysis</p>
                     </a>
                 </li>
                 <li>
-                    <a href="pages/populationImpact.html">
+                    <a href="populationImpact.html">
                         <i class="pe-7s-note2"></i>
                         <p>Impact of human population analysis</p>
                     </a>
                 </li>
                 <li>
-                    <a href="pages/twitterAnalysis.html">
+                    <a href="twitterAnalysis.html">
                         <i class="pe-7s-note2"></i>
                         <p>Possible cause analysis</p>
                     </a>
@@ -112,13 +134,7 @@
     </div>
 
     <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">GeneX - We Refine the World</a>
-                </div>
-            </div>
-        </nav>
+
 
         <div class="content">
             <div class="container-fluid">
@@ -127,6 +143,11 @@
                         <font color="#d3d3d3" size="2"> Use the mouse to move the globe and zoom it.
                             You can see different information received at different locations regarding a particular species and any endangered situations. </font>
                     </div>
+                    <div class="col-md-12">
+                        <font color="#d3d3d3" size="3">  Selected year : <div id="year" style = display:inline-block ></div> </font>
+                    </div>
+                    <input type="range" min="1985" max="2017" value="1985" step="1" onchange="showValue(this.value)" />
+                    <span id="range">0</span>
                     <div class="col-md-12">
                         <div id="earth_div"></div>
                     </div>
