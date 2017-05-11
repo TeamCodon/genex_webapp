@@ -37,6 +37,13 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
+    <!--World map-->
+    <link rel="stylesheet" href="../assets/js/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
+    <script src="../assets/js/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="../assets/js/jquery-jvectormap-world-mill.js"></script>
+
+
+
     <style>
         #map { width: 100%; height: 600px; }
         body { font: 16px/1.4 "Helvetica Neue", Arial, sans-serif; }
@@ -153,6 +160,25 @@
             </div>
         </div>
 
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Map</h4>
+                                <p class="category">You can find human population variations from here</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+
+                                <div id="world-map" style="width: 600px; height: 400px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <center>
 
@@ -198,27 +224,13 @@
 
 
 <script src="../leaflet_heat.js"></script>
-
-<!--<script src="birds.js"></script>-->
-<script src="../whale.js"></script>
-<script src="../falconOc.js"></script>
-<script src="../chart.js"></script>
-<script src="../custom.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        demo.initChartist();
-
-        $.notify({
-            icon: 'pe-7s-gift',
-            message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
-        },{
-            type: 'info',
-            timer: 4000
-        });
-
+<script>
+    $(function(){
+        $('#world-map').vectorMap({map: 'world_mill'});
     });
 </script>
 
+<!--<script src="birds.js"></script>-->
+<!--<script src="../chart.js"></script>-->
+<!--<script src="../custom.js"></script>-->
 </html>
