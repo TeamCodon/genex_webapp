@@ -40,6 +40,8 @@
         .ghbtns { position: relative; top: 4px; margin-left: 5px; }
         a { color: #0077ff; }
     </style>
+    <script src="../tweetdata.js"></script>
+
     <script>
         function initialize() {
             var options = {atmosphere: true, center: [0, 0], zoom: 0};
@@ -49,15 +51,10 @@
                 maxZoom: 5,
                 attribution: 'Team Codon'
             }).addTo(earth);
-
-            var marker = WE.marker([51.5, -0.09]).addTo(earth);
-            marker.bindPopup("Extra virgin olive oil is just like regular olive oil but with more Star Wars action figures.<br><br>Extra virgin olive oil is just like regular olive oil but with more Star Wars action figures.", {maxWidth: 150, closeButton: true}).openPopup();
-
-            var marker2 = WE.marker([30.058056, 31.228889]).addTo(earth);
-            marker2.bindPopup("<b>Cairo</b><br>Yay, you found me!", {maxWidth: 120, closeButton: false});
-
-            var markerCustom = WE.marker([50, -9], '/img/logo-webglearth-white-100.png', 100, 24).addTo(earth);
-
+            for (i = 0; i <  tweetPoints.length; i++) {
+                var marker2 = WE.marker([ tweetPoints[i][1],tweetPoints[i][2]]).addTo(earth);
+                marker2.bindPopup(tweetPoints[i][3], {maxWidth: 120, closeButton: false});
+            }
             earth.setView([51.505, 0], 1);
         }
     </script>
