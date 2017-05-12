@@ -44,7 +44,7 @@
 
 
     <script type="text/javascript">
-        var value = 1985;
+        var value = 2017;
         var earth = null;
         var marker2 = null;
         var marker_list = [];
@@ -58,12 +58,12 @@
             }).addTo(earth);
             for (i = 0; i <  tweetPoints.length; i++) {
                 if (tweetPoints[i][0] <= value) {
-                    marker2 = WE.marker([tweetPoints[i][1], tweetPoints[i][2]]).addTo(earth);
-                    marker2.bindPopup(tweetPoints[i][3], {maxWidth: 220, closeButton: true});
+                    marker2 = WE.marker([tweetPoints[i][1][0], tweetPoints[i][2][1]]).addTo(earth);
+                    marker2.bindPopup(tweetPoints[i][2], {maxWidth: 220, closeButton: true});
                     marker_list.push(marker2);
                 }
             }
-            earth.setView([51.505, 0], 2);
+            earth.setView([-36.7115205, 69], 2);
         }
         function showValue(newValue) {
             document.getElementById("year").innerHTML=newValue;
@@ -73,8 +73,8 @@
             }
             for (i = 0; i < tweetPoints.length; i++) {
                 if (tweetPoints[i][0] <= value) {
-                    var marker  = WE.marker([tweetPoints[i][1], tweetPoints[i][2]]).addTo(earth);
-                    marker.bindPopup(tweetPoints[i][3], {maxWidth: 220, closeButton: true});
+                    var marker  = WE.marker([tweetPoints[i][1][0], tweetPoints[i][2][1]]).addTo(earth);
+                    marker.bindPopup(tweetPoints[i][2], {maxWidth: 220, closeButton: true});
                     marker_list.push(marker);
                 }
             }
@@ -146,7 +146,7 @@
                     <div class="col-md-12">
                         <font color="#d3d3d3" size="3">  Selected year : <div id="year" style = display:inline-block ></div> </font>
                     </div>
-                    <input type="range" min="1985" max="2017" value="1985" step="1" onchange="showValue(this.value)" />
+                    <input type="range" min="2011" max="2017" value="2011" step="1" onchange="showValue(this.value)" />
                     <span id="range">0</span>
                     <div class="col-md-12">
                         <div id="earth_div"></div>

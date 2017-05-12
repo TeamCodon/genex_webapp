@@ -10,7 +10,6 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-
     <!-- Bootstrap core CSS     -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -19,9 +18,6 @@
 
     <!--  Light Bootstrap Table core CSS    -->
     <link href="../assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
-
-
-
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -35,7 +31,6 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 
     <style>
         #map { width: 100%; height: 600px; }
@@ -106,49 +101,22 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Environmental Petitions</h4>
-                                <p class="category">You can find petitions to sign here.</p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover table-striped">
-                                    <thead>
-                                    <th>NO</th>
-                                    <th>Name</th>
-                                    <th>Link</th>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Wildlife Petitions</td>
-                                        <td><a href="http://www.thepetitionsite.com/environment-and-wildlife/wildlife/#hottest" target="_blank">Click on this link</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Endangered Species Petitions</td>
-                                        <td><a href="http://www.thepetitionsite.com/environment-and-wildlife/endangered-species/#hottest" target="_blank">Click on this link</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Animal Welfare Petitions</td>
-                                        <td><a href="http://www.thepetitionsite.com/animal-welfare/#hottest" target="_blank">Click on this link</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Climate Change Petitions</td>
-                                        <td><a href="http://www.thepetitionsite.com/environment-and-wildlife/global-warming-climate-change/#hottest" target="_blank">Click on this link</a></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
 
-                            </div>
+                    <div class="col-md-12">
+                        <div class="content">
+                            <p id="infobox" class="description text-left">The map given gives the picture of the species and the migrations and interactions of clusters through the use of heat maps. You can use the slider to visit any temporal value and the map will show the sightings and locations in a heat map. Play, Pause and Reset allows you to automatically play and view the process of the migrations and interactions.<p>
+                            <div id="slider" ></div>
+                            <button onclick="play()">Play</button>
+                            <button onclick="pause()">Pause</button>
+                            <button onclick="reset()">Reset</button>
+                            <div id="map"></div>
                         </div>
                     </div>
-
-
-
+                    <div class="col-md-12">
+                        <div class="card">
+                            <iframe src="https://ourworldindata.org/grapher/world-population-by-world-regions-post-1820" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -203,7 +171,8 @@
 <script src="../whale.js"></script>
 <script src="../falconOc.js"></script>
 <script src="../chart.js"></script>
-<script src="../custom.js"></script>
+<script src="../falcon_geneflow.js"></script>
+<script src="../custom1.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
 
