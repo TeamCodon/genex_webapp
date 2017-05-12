@@ -66,18 +66,7 @@ const gap = 1000*60*60*24*7* 4;//*12*2; //(max_date-min_date)/100//1000*60*60*24
 const play_gap = gap/2;
 var playing = false;
 var currentValue = min_date;
-$( function() {
-    $( "#slider" ).slider({
-        max: max_date,
-        min: min_date,
-        value:min_date,
-        change: function( event, ui ) {
-            var timeRange = [new Date(ui.value-gap/2), new Date(ui.value+gap/2)]
-            setPointsForTime(timeRange);
-            currentValue = ui.value;
-        }
-    });
-} );
+
 
 function play(){
     playing = true;
