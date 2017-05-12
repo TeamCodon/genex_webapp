@@ -181,6 +181,7 @@
                             <button onclick="play()">Play</button>
                             <button onclick="pause()">Pause</button>
                             <button onclick="reset()">Reset</button>
+                            <input disabled id="year_text" />
                             <div id="map"></div>
                         </div>
                     </div>
@@ -272,10 +273,10 @@
 //        console.log(shapes.length);
     }
 
-    min_date =  Date.parse('9/6/1985 8:19 PM'); // Date.parse('1929-12-16 09:00:00.000');
+    min_date =  Date.parse('9/6/1999 8:19 PM'); // Date.parse('1929-12-16 09:00:00.000');
     max_date = Date.parse('11/11/17 11:07 PM');
     const gap = 1000*60*60*24*7*4;//*12*2; //(max_date-min_date)/100//1000*60*60*24*7*4*12;
-    const play_gap = gap/4;
+    const play_gap = gap;
     var playing = false;
     var currentValue = min_date;
     $( function() {
@@ -288,6 +289,8 @@
                 console.log(timeRange);
                 setPointsForTime(timeRange);
                 currentValue = ui.value;
+                d = new Date(currentValue);
+                $('#year_text').val(d.getFullYear()+" "+ d.toLocaleString("en-us",{ month: "long" }));
             }
         });
     } );
@@ -318,11 +321,13 @@
         {
             pause();
         }
-        setTimeout(playMethod, 200);
+        setTimeout(playMethod, 300);
 
     }
-    playMethod();
-
+    playMethod()
+    setTimeout(function(){
+        $( "#slider" ).slider("value", min_date+gap );
+    }, 3000);
     //    L.marker([51.5, -0.09]).addTo(map);
     //    L.circle([51.5, -0.09], {
     //        radius: 500000,
