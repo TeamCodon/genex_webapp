@@ -9,12 +9,16 @@ var tiles = googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}
 }).addTo(map);
 
 for(i=0; i<falconGenePoints.length;i++){
-    L.circle([falconGenePoints[i][1], falconGenePoints[i][2]], {
-        radius: falconGenePoints[i][3]*1000,
-        fillColor:colour_array[falconGenePoints[i][4]],
-        opacity:0.5,
-        color:colour_array[falconGenePoints[i][4]]
+    if(falconGenePoints[i][0].substring(0, 4) == 1800){
+        var circle = L.circle([falconGenePoints[i][1], falconGenePoints[i][2]], {
+            radius: falconGenePoints[i][3]*1000,
+            fillColor:colour_array[falconGenePoints[i][4]],
+            opacity:0.5,
+            color:colour_array[falconGenePoints[i][4]]
 
-    }).addTo(map);
+        }).addTo(map);
+        marker_list.push(circle);
+    }
+
 }
 

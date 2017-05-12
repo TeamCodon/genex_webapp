@@ -10,6 +10,7 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
+
     <!-- Bootstrap core CSS     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -24,61 +25,120 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+
+
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+    <script src="http://www.webglearth.com/v2/api.js"></script>
     <style>
         #map { width: 100%; height: 600px; }
         body { font: 16px/1.4 "Helvetica Neue", Arial, sans-serif; }
         .ghbtns { position: relative; top: 4px; margin-left: 5px; }
         a { color: #0077ff; }
     </style>
+    <script src="tweetdata.js"></script>
+
+
+    <script type="text/javascript">
+        var value = 2017;
+        var earth = null;
+        var marker2 = null;
+        var marker_list = [];
+        function initialize() {
+            var options = {atmosphere: true, center: [0, 0], zoom: 0};
+            earth = new WE.map('earth_div', options);
+            WE.tileLayer('http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg', {
+                minZoom: 0,
+                maxZoom: 5,
+                attribution: 'Team Codon'
+            }).addTo(earth);
+            for (i = 0; i <  tweetPoints.length; i++) {
+                if (tweetPoints[i][0] <= value) {
+                    marker2 = WE.marker([tweetPoints[i][1][1], tweetPoints[i][1][0]]).addTo(earth);
+                    marker2.bindPopup(tweetPoints[i][2], {maxWidth: 220, closeButton: true});
+                    marker_list.push(marker2);
+                }
+            }
+            earth.setView([26.7115205, -40], 2.5);
+        }
+        function showValue(newValue) {
+            document.getElementById("year").innerHTML=newValue;
+            value = newValue;
+            for (j = 0; j < marker_list.length; j++){
+                marker_list[j].removeFrom(earth);
+            }
+            for (i = 0; i < tweetPoints.length; i++) {
+                if (tweetPoints[i][0] <= value) {
+                    var marker  = WE.marker([tweetPoints[i][1][1], tweetPoints[i][1][0]]).addTo(earth);
+                    marker.bindPopup(tweetPoints[i][2], {maxWidth: 220, closeButton: true});
+                    marker_list.push(marker);
+                }
+            }
+        }
+    </script>
     <style>
         html, body{padding: 0; margin: 0; background-color: black;}
     </style>
 </head>
-<body>
+<body onload="initialize()">
+
 
 <div class="wrapper">
     <div class="sidebar" data-color="black" data-image="assets/img/sidebar-2.jpg">
 
+
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">
-                    <img src="assets\img\genex.png" style="width:80%;border-radius: 25px;"/>
+                    <img src="assets\img\genex.png" style="height:50%;width:60%;border-radius: 25px;"/>
                 </a>
             </div>
 
             <ul class="nav">
+                <li class="active">
+                    <a href="index.html">
+                        <i class="pe-7s-map-2"></i>
+                        <p>Why Care ?</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="pages/geneFlow.html">
+                        <i class="pe-7s-male"></i>
+                        <p>Gene Flow</p>
+                    </a>
+                </li>
                 <li>
                     <a href="pages/migrationImpact.html">
-                        <i class="pe-7s-note2"></i>
-                        <p>Migration Analysis</p>
+                        <i class="pe-7s-global"></i>
+                        <p>Impact of Migration</p>
                     </a>
                 </li>
                 <li>
                     <a href="pages/climateImpact.html">
-                        <i class="pe-7s-note2"></i>
-                        <p>Impact of Climate Changes analysis</p>
+                        <i class="pe-7s-sun"></i>
+                        <p>Impact of Climate</p>
                     </a>
                 </li>
                 <li>
                     <a href="pages/populationImpact.html">
-                        <i class="pe-7s-note2"></i>
-                        <p>Impact of human population analysis</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="pages/twitterAnalysis.html">
-                        <i class="pe-7s-note2"></i>
-                        <p>Possible cause analysis</p>
+                        <i class="pe-7s-users"></i>
+                        <p>Impact of human</p>
                     </a>
                 </li>
                 <li>
                     <a href="pages/saveplanet.html">
-                        <i class="pe-7s-note2"></i>
+                        <i class="pe-7s-look"></i>
                         <p>Save planet Earth</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="pages/features.html">
+                        <i class="pe-7s-note2"></i>
+                        <p>GeneX features</p>
                     </a>
                 </li>
             </ul>
@@ -86,88 +146,26 @@
     </div>
 
     <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">GeneX - We Refine the World</a>
-                </div>
-            </div>
-        </nav>
+
 
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <center>
-                        <div class="col-md-12">
-                            <font color="#d3d3d3" size="3">GeneX is an online platform for analysing and visualizing the gene population, gene flow and local adaptation patterns of different species.
-                            </font>
-                        </div>
-                    </center><br><br>
                     <div class="col-md-12">
-                        <font color="#d3d3d3" size="5">Features
-                        </font>
-                    </div><br><br>
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <br>
-                            <center> <img src="assets/img/2.png" height="190px" weight="100px" alt="..."/></center>
-                            <br><br>
-                            <center><h4 class="title"><b>Migration Analysis</b><br/></h4></center><br>
-                            <p id="infobox" class="description text-center"> Migration analysis section maps the migration patterns with the gene flow patterns.
-                                <br><br><br>
-                            </p>
-                        </div>
+                        <font color="#d3d3d3" size="4">Why you need to care ? Have a look below for what people have said in social media on Peregrine Falcon extinction.</font>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <br>
-                            <center> <img src="assets/img/1.png" height="185px" weight="100px" alt="..."/></center>
-                            <br><br>
-                            <center><h4 class="title"><b>Climate Analysis</b><br/></h4></center><br>
-                            <p id="infobox" class="description text-center"> In this section, we try to map the climate changes with the gene flow patterns.
-                            </p><br><br>
-                        </div>
+                    <div class="col-md-12">
+                        <font color="#d3d3d3" size="3">  Selected year : <div id="year" style = display:inline-block ></div> </font>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <br>
-                            <center><img src="assets/img/1.png" height="185px" weight="100px" alt="..."/></center>
-                            <br><br>
-                            <center><h4 class="title"><b>Population Analysis</b><br/></h4></center><br>
-                            <p id="infobox" class="description text-center"> Population analysis provides the analysis on the impact of human population growth on gene flow.
-                            </p><br><br>
-                        </div>
+                    <input type="range" min="2011" max="2017" value="2011" step="1" onchange="showValue(this.value)" />
+                    <div class="col-md-12">
+                        <div id="earth_div"></div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <br>
-                            <center> <img src="assets/img/1.png" height="185px" weight="100px" alt="..."/></center>
-                            <br><br>
-                            <center><h4 class="title"><b>Cause Analysis</b><br/></h4></center><br>
-                            <p id="infobox" class="description text-center"> Cause Analysis is powered by the social networking based crowd sourcing. Through the casue analysis we try to identify the possible casuses for different situations for the given species with time.
-                            </p><br>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <br>
-                            <center> <img src="assets/img/3.jpg" height="185px" weight="100px" alt="..."/></center>
-                            <br><br>
-                            <center><h4 class="title"><b>Save the Earth</b><br/></h4></center><br>
-                            <p id="infobox" class="description text-center"> Do your responsibility by taking actions by signing petitions and donating for earth saving projects.
-                            </p><br><br><br>
-                        </div>
-                    </div>
+
                 </div>
             </div>
-
         </div>
+
         <center>
             <footer class="footer">
                 <div class="container-fluid">
@@ -184,14 +182,16 @@
                 </div>
             </footer>
         </center>
+
     </div>
-</div>
 </div>
 
 </body>
+
 <!--   Core JS Files   -->
 <!--<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>-->
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
 <!--  Checkbox, Radio & Switch Plugins -->
 <script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
 
@@ -203,4 +203,13 @@
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="assets/js/light-bootstrap-dashboard.js"></script>
+
+<script src="leaflet_heat.js"></script>
+
+<!--<script src="birds.js"></script>-->
+<script src="whale.js"></script>
+<script src="falconOc.js"></script>
+<script src="chart.js"></script>
+<script src="custom.js"></script>
+
 </html>

@@ -38,6 +38,42 @@
         .ghbtns { position: relative; top: 4px; margin-left: 5px; }
         a { color: #0077ff; }
     </style>
+    <script>
+        var marker_list = [];
+        function showValue(newValue) {
+            value = parseFloat(newValue);
+
+            for (j = 0; j < marker_list.length; j++){
+                marker_list[j].removeFrom(map);
+            }
+            for (i = 0; i < falconGenePoints.length; i++) {
+                var year  = (falconGenePoints[i][0].substring(0, 4)).concat(".".concat(falconGenePoints[i][0].substring(6, 7)));
+                if (year == value && falconGenePoints[i][0].substring(5, 7) != 11 && falconGenePoints[i][0].substring(5, 7) !=12 ) {
+                    var circle = L.circle([falconGenePoints[i][1], falconGenePoints[i][2]], {
+                        radius: falconGenePoints[i][3]*1000,
+                        fillColor:colour_array[falconGenePoints[i][4]],
+                        opacity:0.5,
+                        color:colour_array[falconGenePoints[i][4]]
+
+                    }).addTo(map);
+                    marker_list.push(circle);
+                }
+            }
+        }
+        function play() {
+            var start = 2000;
+            var second_val = 1;
+            for(i = start ; i<2018;i++){
+               while (second_val < 11) {
+                   setTimeout(showValue, 1000, start.toString().concat(".".concat(second_val.toString())));
+                   second_val = second_val + 1 ;
+               }
+            }
+        }
+    </script>
+    <style>
+        html, body{padding: 0; margin: 0; background-color: black;}
+    </style>
 
 </head>
 <body>
@@ -49,39 +85,51 @@
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">
-                    <img src="..\assets\img\genex.png" style="width:80%;border-radius: 25px;"/>
+                    <img src="..\assets\img\genex.png" style="height:50%;width:60%;border-radius: 25px;"/>
                 </a>
             </div>
 
             <ul class="nav">
-                <li class="active">
+                <li >
                     <a href="../index.html">
-                        <i class="pe-7s-graph"></i>
-                        <p>Home</p>
+                        <i class="pe-7s-map-2"></i>
+                        <p>Why Care ?</p>
+                    </a>
+                </li>
+                <li >
+                    <a href="geneFlow.html">
+                        <i class="pe-7s-male"></i>
+                        <p>Gene Flow</p>
                     </a>
                 </li>
                 <li>
                     <a href="migrationImpact.html">
-                        <i class="pe-7s-note2"></i>
-                        <p>Migration Analysis</p>
+                        <i class="pe-7s-global"></i>
+                        <p>Impact of Migration</p>
                     </a>
                 </li>
                 <li>
                     <a href="climateImpact.html">
-                        <i class="pe-7s-note2"></i>
-                        <p>Impact of Climate Changes analysis</p>
+                        <i class="pe-7s-sun"></i>
+                        <p>Impact of Climate</p>
                     </a>
                 </li>
-                <li>
-                    <a href="twitterAnalysis.html">
-                        <i class="pe-7s-note2"></i>
-                        <p>Possible cause analysis</p>
+                <li class="active">
+                    <a href="populationImpact.html">
+                        <i class="pe-7s-users"></i>
+                        <p>Impact of human</p>
                     </a>
                 </li>
                 <li>
                     <a href="saveplanet.html">
-                        <i class="pe-7s-note2"></i>
+                        <i class="pe-7s-look"></i>
                         <p>Save planet Earth</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="features.html">
+                        <i class="pe-7s-note2"></i>
+                        <p>GeneX features</p>
                     </a>
                 </li>
             </ul>
@@ -89,10 +137,16 @@
     </div>
 
     <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
+        <nav class="navbar navbar-default navbar-fixed" style="background-color: black;">
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">GeneX - We Refine the World</a>
+                <div class="navbar-header" >
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" style="color: white;"href="#">How the human population can affect Peregrine Falcon gene flow</a>
                 </div>
 
             </div>
@@ -104,8 +158,8 @@
 
                     <div class="col-md-12">
                         <div class="content">
-                            <p id="infobox" class="description text-left">The map given gives the picture of the species and the migrations and interactions of clusters through the use of heat maps. You can use the slider to visit any temporal value and the map will show the sightings and locations in a heat map. Play, Pause and Reset allows you to automatically play and view the process of the migrations and interactions.<p>
-                            <div id="slider" ></div>
+                            <p id="infobox" class="description text-left" style="color: white;">The map given gives the picture of the species and the migrations and interactions of clusters through the use of heat maps. You can use the slider to visit any temporal value and the map will show the sightings and locations in a heat map. Play, Pause and Reset allows you to automatically play and view the process of the migrations and interactions.<p>
+                            <input type="range" min="1800" max="2017" value="1800" step="0.1" onchange="showValue(this.value)" id="slider"/>
                             <button onclick="play()">Play</button>
                             <button onclick="pause()">Pause</button>
                             <button onclick="reset()">Reset</button>
