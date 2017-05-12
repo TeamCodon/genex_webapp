@@ -10,7 +10,6 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-
     <!-- Bootstrap core CSS     -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -28,7 +27,6 @@
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
 
-
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -40,27 +38,6 @@
         .ghbtns { position: relative; top: 4px; margin-left: 5px; }
         a { color: #0077ff; }
     </style>
-    <script>
-        function initialize() {
-            var options = {atmosphere: true, center: [0, 0], zoom: 0};
-            var earth = new WE.map('earth_div', options);
-            WE.tileLayer('http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg', {
-                minZoom: 0,
-                maxZoom: 5,
-                attribution: 'NASA'
-            }).addTo(earth);
-
-            var marker = WE.marker([51.5, -0.09]).addTo(earth);
-            marker.bindPopup("<b>Hello world!</b><br>I am a popup.<br /><span style='font-size:10px;color:#999'>Tip: Another popup is hidden in Cairo..</span>", {maxWidth: 150, closeButton: true}).openPopup();
-
-            var marker2 = WE.marker([30.058056, 31.228889]).addTo(earth);
-            marker2.bindPopup("<b>Cairo</b><br>Yay, you found me!", {maxWidth: 120, closeButton: false});
-
-            var markerCustom = WE.marker([50, -9], '/img/logo-webglearth-white-100.png', 100, 24).addTo(earth);
-
-            earth.setView([51.505, 0], 6);
-        }
-    </script>
     <style>
         html, body{padding: 0; margin: 0; background-color: black;}
         .no-js #loader { display: none;  }
@@ -82,16 +59,15 @@
         });
     </script>
 </head>
-<body onload="initialize()">
+<body>
 <div class="se-pre-con"></div>
-
 <div class="wrapper">
-    <div class="sidebar" data-color="black" data-image="assets/img/sidebar-2.jpg">
+    <div class="sidebar" data-color="black" data-image="../assets/img/sidebar-2.jpg">
 
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">
-                    <img src="..\assets\img\genex.png" style="height:50%;width:60%;border-radius: 25px;"/>
+                    <img src="../assets\img\genex.png" style="height:50%;width:60%;border-radius: 25px;"/>
                 </a>
             </div>
 
@@ -108,13 +84,13 @@
                         <p>Gene Flow</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="migrationImpact.html">
                         <i class="pe-7s-global"></i>
                         <p>Impact of Migration</p>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="climateImpact.html">
                         <i class="pe-7s-sun"></i>
                         <p>Impact of Climate</p>
@@ -123,7 +99,7 @@
                 <li>
                     <a href="populationImpact.html">
                         <i class="pe-7s-users"></i>
-                        <p>Impact of human</p>
+                        <p>Impact of human </p>
                     </a>
                 </li>
                 <li>
@@ -152,7 +128,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" style="color: white;"href="#">How the climate (temperature) can affect Peregrine Falcon gene flow</a>
+                    <a class="navbar-brand" style="color: white;"href="#">Relationship between gene flow and migration of Peregrine Falcon</a>
                 </div>
 
             </div>
@@ -164,40 +140,15 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Environmental Petitions</h4>
-                                <p class="category">You can find petitions to sign here.</p>
+                                <h4 class="title">Behavior Map</h4>
                             </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover table-striped">
-                                    <thead>
-                                    <th>NO</th>
-                                    <th>Name</th>
-                                    <th>Link</th>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Wildlife Petitions</td>
-                                        <td><a href="http://www.thepetitionsite.com/environment-and-wildlife/wildlife/#hottest" target="_blank">Click on this link</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Endangered Species Petitions</td>
-                                        <td><a href="http://www.thepetitionsite.com/environment-and-wildlife/endangered-species/#hottest" target="_blank">Click on this link</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Animal Welfare Petitions</td>
-                                        <td><a href="http://www.thepetitionsite.com/animal-welfare/#hottest" target="_blank">Click on this link</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Climate Change Petitions</td>
-                                        <td><a href="http://www.thepetitionsite.com/environment-and-wildlife/global-warming-climate-change/#hottest" target="_blank">Click on this link</a></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-
+                            <div class="content">
+                                <p id="infobox" class="description text-left">The map given gives the picture of the species and the migrations and interactions of clusters through the use of heat maps. You can use the slider to visit any temporal value and the map will show the sightings and locations in a heat map. Play, Pause and Reset allows you to automatically play and view the process of the migrations and interactions.<p>
+                                <div id="slider" ></div>
+                                <button onclick="play()">Play</button>
+                                <button onclick="pause()">Pause</button>
+                                <button onclick="reset()">Reset</button>
+                                <div id="map"></div>
                             </div>
                         </div>
                     </div>
@@ -223,7 +174,6 @@
     </div>
 </div>
 
-
 </body>
 
 <!--   Core JS Files   -->
@@ -239,8 +189,6 @@
 <!--  Notifications Plugin    -->
 <script src="../assets/js/bootstrap-notify.js"></script>
 
-
-
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="../assets/js/light-bootstrap-dashboard.js"></script>
 
@@ -250,6 +198,110 @@
 <!--<script src="birds.js"></script>-->
 <script src="../whale.js"></script>
 <script src="../falconOc.js"></script>
+<script src="../falcon_geneflow.js"></script>
 <script src="../chart.js"></script>
-<script src="../custom.js"></script>
+<script>
+
+    var map = L.map('map').setView([37.391942, -6.557898], 2);
+    var tiles = googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3']
+    }).addTo(map);
+
+    var heatLayer = null
+    var drawingPoints = falconOcPoints;
+    function setPointsForTime(timeRange){
+
+        map.eachLayer(function (layer) {
+            if(layer!=tiles)
+                map.removeLayer(layer);
+        });
+
+        var heatPoints = drawingPoints
+                .filter(function(point){
+                    const t = new Date(point[0]);
+                    return t>timeRange[0]&&t<timeRange[1];
+                })
+                .map(function (p) {
+                    return [p[1], p[2],10000]; });
+        console.log(heatPoints.length);
+        heatLayer = L.heatLayer(heatPoints, {
+            radius:4,
+            blur:10
+        }).addTo(map);
+
+        var shape_colors = ['#ff3f69', '#83ff92', '#84b3ff','#ffff59','pink'];
+        var shapes = falconGenePoints
+                .filter(function(point){
+                    const t = new Date(point[0]);
+                    return t>timeRange[0]&&t<=timeRange[1];
+                })
+                .map(function (p) {
+                    return [p[1], p[2],p[3],p[4]]; })
+                .map(function (p){
+                    var clr =  p[3]<shape_colors.length?shape_colors[p[3]]:'orange';
+                    L.circle([p[0],p[1]], {
+                        radius: p[2]*1000,
+                        fillColor:clr,
+                        opacity:0.5,
+                        color:clr
+                    }).addTo(map);
+                });
+
+        updateChart(timeRange);
+    }
+
+    min_date =  Date.parse('9/6/1985 8:19 PM'); // Date.parse('1929-12-16 09:00:00.000');
+    max_date = Date.parse('11/11/17 11:07 PM');
+    const gap = 1000*60*60*24*7* 4;//*12*2; //(max_date-min_date)/100//1000*60*60*24*7*4*12;
+    const play_gap = gap/2;
+    var playing = false;
+    var currentValue = min_date;
+    $( function() {
+        $( "#slider" ).slider({
+            max: max_date,
+            min: min_date,
+            value:min_date,
+            change: function( event, ui ) {
+                var timeRange = [new Date(ui.value-gap/2), new Date(ui.value+gap/2)]
+                setPointsForTime(timeRange);
+                currentValue = ui.value;
+            }
+        });
+    } );
+
+    function play(){
+        playing = true;
+    }
+
+    function pause(){
+        playing = false;
+    }
+
+    function reset(){
+        currentValue = min_date;
+        playing = false;
+        $( "#slider" ).slider("value", currentValue );
+    }
+
+    function playMethod(){
+        console.log(new Date(currentValue));
+        console.log(playing);
+        if(playing && currentValue<=max_date)
+        {
+            currentValue+= play_gap;
+            $( "#slider" ).slider("value", currentValue );
+            updateChart([currentValue-gap/2,currentValue+gap/2]);
+        }
+        if(playing && currentValue>max_date)
+        {
+            pause();
+        }
+        setTimeout(playMethod, 50);
+
+    }
+    playMethod();
+    initChart(min_date, max_date, drawingPoints);
+
+</script>
 </html>
