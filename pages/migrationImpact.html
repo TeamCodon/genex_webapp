@@ -137,38 +137,7 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <div class="image">
-                                <img src="https://blog.wildlife.virginia.gov/wp-content/uploads/2016/03/PEFA-Habitat-400x300.jpg?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
-                            </div>
-                            <div class="content">
-                                <div class="author">
-                                    <a href="#">
-                                        <img class="avatar border-gray" src="../assets/img/falcon.jpg" alt="..."/>
-                                        <h4 class="title">Peregrine Falcon<br />
-                                            <small>Falco peregrinus</small>
-                                        </h4>
-                                    </a>
-                                </div>
-                                <p id="infobox" class="description text-center"> The peregrine falcon (Falco peregrinus), also known as the peregrine, and historically as the duck hawk in North America, is a widespread bird of prey in the family Falconidae. A large, crow-sized falcon, it has a blue-grey back, barred white underparts, and a black head. As is typical of bird-eating raptors, peregrine falcons are sexually dimorphic, females being considerably larger than males. The peregrine is renowned for its speed, reaching over 320 km/h (200 mph) during its characteristic hunting stoop (high speed dive), making it the fastest member of the animal kingdom. According to a National Geographic TV programme, the highest measured speed of a peregrine falcon is 389 km/h (242 mph).
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Twitter Feed</h4>
-                            </div>
-                            <div class="content">
-                                <a class="twitter-timeline"  href="https://twitter.com/hashtag/peregrine" data-widget-id="859136246412525570">#peregrine Tweets</a>
-                                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Behavior Map</h4>
@@ -235,16 +204,11 @@
 <script src="../chart.js"></script>
 <script>
 
-    /**
-     * Created by Janaka on 2017-04-29.
-     */
     var map = L.map('map').setView([37.391942, -6.557898], 1);
     var tiles = googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
         maxZoom: 20,
         subdomains:['mt0','mt1','mt2','mt3']
     }).addTo(map);
-
-
 
     var heatLayer = null
     var drawingPoints = falconOcPoints;
