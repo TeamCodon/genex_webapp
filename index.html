@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <style>
         #map { width: 100%; height: 600px; }
@@ -82,10 +82,27 @@
     </script>
     <style>
         html, body{padding: 0; margin: 0; background-color: black;}
+        .no-js #loader { display: none;  }
+        .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+        .se-pre-con {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url(assets/img/loader1.gif) center no-repeat #fff;
+        }
     </style>
+    <script>
+        $(window).load(function() {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
 </head>
 <body onload="initialize()">
-
+<div class="se-pre-con"></div>
 
 <div class="wrapper">
     <div class="sidebar" data-color="black" data-image="assets/img/sidebar-2.jpg">
@@ -152,7 +169,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <font color="#d3d3d3" size="4">Why you need to care ? Have a look below for what people have said in social media on Peregrine Falcon extinction.</font>
+                        <font color="#d3d3d3" size="4">Why you need to care ? Have a look below for what people have said in social media on Peregrine Falcon existence.</font>
                     </div>
                     <div class="col-md-12">
                         <font color="#d3d3d3" size="3">  Selected year : <div id="year" style = display:inline-block ></div> </font>

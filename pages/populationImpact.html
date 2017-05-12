@@ -64,20 +64,37 @@
             var start = 2000;
             var second_val = 1;
             for(i = start ; i<2018;i++){
-               while (second_val < 11) {
-                   setTimeout(showValue, 1000, start.toString().concat(".".concat(second_val.toString())));
-                   second_val = second_val + 1 ;
-               }
+                while (second_val < 11) {
+                    setTimeout(showValue, 1000, start.toString().concat(".".concat(second_val.toString())));
+                    second_val = second_val + 1 ;
+                }
             }
         }
     </script>
     <style>
         html, body{padding: 0; margin: 0; background-color: black;}
+        .no-js #loader { display: none;  }
+        .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+        .se-pre-con {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url(../assets/img/loader1.gif) center no-repeat #fff;
+        }
     </style>
+    <script>
+        $(window).load(function() {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
 
 </head>
 <body>
-
+<div class="se-pre-con"></div>
 
 <div class="wrapper">
     <div class="sidebar" data-color="black" data-image="assets/img/sidebar-2.jpg">
@@ -175,9 +192,7 @@
             </div>
         </div>
 
-
         <center>
-
             <footer class="footer">
                 <div class="container-fluid">
                     <nav class="pull-left">
@@ -193,10 +208,8 @@
                 </div>
             </footer>
         </center>
-
     </div>
 </div>
-
 
 </body>
 
@@ -213,11 +226,8 @@
 <!--  Notifications Plugin    -->
 <script src="../assets/js/bootstrap-notify.js"></script>
 
-
-
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="../assets/js/light-bootstrap-dashboard.js"></script>
-
 
 <script src="../leaflet_heat.js"></script>
 
@@ -227,21 +237,5 @@
 <script src="../chart.js"></script>
 <script src="../falcon_geneflow.js"></script>
 <script src="../custom1.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        demo.initChartist();
-
-        $.notify({
-            icon: 'pe-7s-gift',
-            message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
-        },{
-            type: 'info',
-            timer: 4000
-        });
-
-    });
-</script>
 
 </html>

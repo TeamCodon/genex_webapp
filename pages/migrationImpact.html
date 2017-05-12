@@ -10,7 +10,6 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-
     <!-- Bootstrap core CSS     -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -20,9 +19,6 @@
     <!--  Light Bootstrap Table core CSS    -->
     <link href="../assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
 
-
-
-
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
@@ -30,7 +26,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
-
 
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -45,14 +40,29 @@
     </style>
     <style>
         html, body{padding: 0; margin: 0; background-color: black;}
+        .no-js #loader { display: none;  }
+        .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+        .se-pre-con {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url(../assets/img/loader1.gif) center no-repeat #fff;
+        }
     </style>
+    <script>
+        $(window).load(function() {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
 </head>
 <body>
-
+<div class="se-pre-con"></div>
 <div class="wrapper">
     <div class="sidebar" data-color="black" data-image="../assets/img/sidebar-2.jpg">
-
-
 
         <div class="sidebar-wrapper">
             <div class="logo">
@@ -124,7 +134,6 @@
             </div>
         </nav>
 
-
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -140,14 +149,11 @@
                                         <h4 class="title">Peregrine Falcon<br />
                                             <small>Falco peregrinus</small>
                                         </h4>
-
                                     </a>
                                 </div>
                                 <p id="infobox" class="description text-center"> The peregrine falcon (Falco peregrinus), also known as the peregrine, and historically as the duck hawk in North America, is a widespread bird of prey in the family Falconidae. A large, crow-sized falcon, it has a blue-grey back, barred white underparts, and a black head. As is typical of bird-eating raptors, peregrine falcons are sexually dimorphic, females being considerably larger than males. The peregrine is renowned for its speed, reaching over 320 km/h (200 mph) during its characteristic hunting stoop (high speed dive), making it the fastest member of the animal kingdom. According to a National Geographic TV programme, the highest measured speed of a peregrine falcon is 389 km/h (242 mph).
                                 </p>
-
                             </div>
-
                         </div>
 
                         <div class="card">
@@ -179,15 +185,10 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-
-
             </div>
         </div>
         <center>
-
             <footer class="footer">
                 <div class="container-fluid">
                     <nav class="pull-left">
@@ -206,7 +207,6 @@
     </div>
 </div>
 
-
 </body>
 
 <!--   Core JS Files   -->
@@ -222,8 +222,6 @@
 <!--  Notifications Plugin    -->
 <script src="../assets/js/bootstrap-notify.js"></script>
 
-
-
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="../assets/js/light-bootstrap-dashboard.js"></script>
 
@@ -235,21 +233,4 @@
 <script src="../falconOc.js"></script>
 <script src="../chart.js"></script>
 <script src="../custom.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        demo.initChartist();
-
-        $.notify({
-            icon: 'pe-7s-gift',
-            message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
-        },{
-            type: 'info',
-            timer: 4000
-        });
-
-    });
-</script>
-
 </html>
