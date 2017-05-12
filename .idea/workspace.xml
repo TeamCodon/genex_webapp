@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86017507-288b-4f90-85f6-68d11a28c71c" name="Default" comment="UI modifications 2">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/img/4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/temp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/climateImpact.html" afterPath="$PROJECT_DIR$/pages/climateImpact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/features.html" afterPath="$PROJECT_DIR$/pages/features.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/geneFlow.html" afterPath="$PROJECT_DIR$/pages/geneFlow.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/migrationImpact.html" afterPath="$PROJECT_DIR$/pages/migrationImpact.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/saveplanet.html" afterPath="$PROJECT_DIR$/pages/saveplanet.html" />
     </list>
     <ignored path="codon-genex-webapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="climateImpact.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="climateImpact.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/climateImpact.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="215" column="28" selection-start-line="215" selection-start-column="28" selection-end-line="215" selection-end-column="28" />
+            <state relative-caret-position="390">
+              <caret line="298" column="9" selection-start-line="298" selection-start-column="9" selection-end-line="298" selection-end-column="9" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#nav#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -122,13 +113,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="saveplanet.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="saveplanet.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/saveplanet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="323">
+              <caret line="133" column="20" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
               <folding>
-                <marker date="1494590530148" expanded="true" signature="2453:2478" ph="..." />
+                <marker date="1494603408176" expanded="true" signature="2453:2478" ph="..." />
               </folding>
             </state>
           </provider>
@@ -166,6 +157,7 @@
         <option value="$PROJECT_DIR$/pages/migrationImpact.html" />
         <option value="$PROJECT_DIR$/pages/features.html" />
         <option value="$PROJECT_DIR$/pages/climateImpact.html" />
+        <option value="$PROJECT_DIR$/pages/saveplanet.html" />
       </list>
     </option>
   </component>
@@ -675,7 +667,7 @@
       <workItem from="1494590554058" duration="5747000" />
       <workItem from="1494598673176" duration="917000" />
       <workItem from="1494600074794" duration="25000" />
-      <workItem from="1494600578568" duration="30000" />
+      <workItem from="1494600578568" duration="1438000" />
     </task>
     <task id="LOCAL-00001" summary="UI modifications">
       <created>1494595524698</created>
@@ -691,11 +683,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494595777666</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Link error corrected">
+      <created>1494603622371</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1494603622371</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6719000" />
+    <option name="totallyTimeSpent" value="8127000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
@@ -743,7 +742,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="UI modifications" />
     <MESSAGE value="UI modifications 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI modifications 2" />
+    <MESSAGE value="Link error corrected" />
+    <option name="LAST_COMMIT_MESSAGE" value="Link error corrected" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -776,7 +776,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1494590530148" expanded="true" signature="2453:2478" ph="..." />
+            <marker date="1494603408176" expanded="true" signature="2453:2478" ph="..." />
           </folding>
         </state>
       </provider>
@@ -869,7 +869,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1494590530148" expanded="true" signature="2453:2478" ph="..." />
+            <marker date="1494603408176" expanded="true" signature="2453:2478" ph="..." />
           </folding>
         </state>
       </provider>
@@ -962,7 +962,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1494590530148" expanded="true" signature="2453:2478" ph="..." />
+            <marker date="1494603408176" expanded="true" signature="2453:2478" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1180,16 +1180,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/saveplanet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1494590530148" expanded="true" signature="2453:2478" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/falconOc.js">
       <provider selected="true" editor-type-id="LargeFileEditor">
         <state />
@@ -1218,12 +1208,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/climateImpact.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="215" column="28" selection-start-line="215" selection-start-column="28" selection-end-line="215" selection-end-column="28" />
+        <state relative-caret-position="390">
+          <caret line="298" column="9" selection-start-line="298" selection-start-column="9" selection-end-line="298" selection-end-column="9" />
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#nav#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/saveplanet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="133" column="20" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
+          <folding>
+            <marker date="1494603408176" expanded="true" signature="2453:2478" ph="..." />
           </folding>
         </state>
       </provider>
