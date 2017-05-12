@@ -234,6 +234,7 @@
 
 <script src="../leaflet_heat.js"></script>
 <script src="../falcon_geneflow.js"></script>
+<script src="../population.js"></script>
 <script>
 
     var map = L.map('map').setView([37.391942, -6.557898], 1);
@@ -267,7 +268,23 @@
                         color:'red'
                     }).addTo(map);
                 });
-//        console.log(shapes.length);
+
+        var heatPoints = populations_points
+                .filter(function (point) {
+                    const t = new Date(point[0]);
+                    return t > timeRange[0] && t < timeRange[1];
+                })
+                .map(function (p) {
+                    return [p[1], p[2], p[3]*10000];
+                });
+        console.log(heatPoints.length);
+        if (heatLayer) {
+            map.removeLayer(heatLayer);
+        }
+        heatLayer = L.heatLayer(heatPoints, {
+            radius: 4,
+            blur: 10
+        }).addTo(map);
     }
 
     min_date =  Date.parse('9/6/1985 8:19 PM'); // Date.parse('1929-12-16 09:00:00.000');

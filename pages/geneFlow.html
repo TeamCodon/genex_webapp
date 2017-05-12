@@ -39,6 +39,39 @@
         .ghbtns { position: relative; top: 4px; margin-left: 5px; }
         a { color: #0077ff; }
     </style>
+    <script>
+        var marker_list = [];
+        function showValue(newValue) {
+            value = parseFloat(newValue);
+
+            for (j = 0; j < marker_list.length; j++){
+                marker_list[j].removeFrom(map);
+            }
+            for (i = 0; i < falconGenePoints.length; i++) {
+                var year  = (falconGenePoints[i][0].substring(0, 4)).concat(".".concat(falconGenePoints[i][0].substring(6, 7)));
+                if (year == value && falconGenePoints[i][0].substring(5, 7) != 11 && falconGenePoints[i][0].substring(5, 7) !=12 ) {
+                    var circle = L.circle([falconGenePoints[i][1], falconGenePoints[i][2]], {
+                        radius: falconGenePoints[i][3]*1000,
+                        fillColor:colour_array[falconGenePoints[i][4]],
+                        opacity:0.5,
+                        color:colour_array[falconGenePoints[i][4]]
+
+                    }).addTo(map);
+                    marker_list.push(circle);
+                }
+            }
+        }
+        function play() {
+            var start = 2000;
+            var second_val = 1;
+            for(i = start ; i<2018;i++){
+                while (second_val < 11) {
+                    setTimeout(showValue, 1000, start.toString().concat(".".concat(second_val.toString())));
+                    second_val = second_val + 1 ;
+                }
+            }
+        }
+    </script>
     <style>
         html, body{padding: 0; margin: 0; background-color: black;}
         .no-js #loader { display: none;  }
@@ -59,33 +92,35 @@
             $(".se-pre-con").fadeOut("slow");;
         });
     </script>
+
 </head>
 <body>
 <div class="se-pre-con"></div>
+
 <div class="wrapper">
-    <div class="sidebar" data-color="black" data-image="../assets/img/sidebar-2.jpg">
+    <div class="sidebar" data-color="black" data-image="assets/img/sidebar-2.jpg">
 
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">
-                    <img src="../assets\img\genex.png" style="height:50%;width:60%;border-radius: 25px;"/>
+                    <img src="..\assets\img\genex.png" style="height:50%;width:60%;border-radius: 25px;"/>
                 </a>
             </div>
 
             <ul class="nav">
-                <li>
+                <li >
                     <a href="../index.html">
                         <i class="pe-7s-map-2"></i>
                         <p>Why Care ?</p>
                     </a>
                 </li>
-                <li  class="active">
+                <li >
                     <a href="geneFlow.html">
                         <i class="pe-7s-male"></i>
                         <p>Gene Flow</p>
                     </a>
                 </li>
-                <li >
+                <li>
                     <a href="migrationImpact.html">
                         <i class="pe-7s-global"></i>
                         <p>Impact of Migration</p>
@@ -97,13 +132,12 @@
                         <p>Impact of Climate</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="populationImpact.html">
                         <i class="pe-7s-users"></i>
                         <p>Impact of human</p>
                     </a>
                 </li>
-
                 <li>
                     <a href="saveplanet.html">
                         <i class="pe-7s-look"></i>
@@ -130,7 +164,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" style="color: white;"href="#">How the Gene Flow Happens for Peregrine Falcon</a>
+                    <a class="navbar-brand" style="color: white;"href="#">How the human population can affect Peregrine Falcon gene flow</a>
                 </div>
 
             </div>
@@ -139,58 +173,28 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <div class="image">
-                                <img src="https://blog.wildlife.virginia.gov/wp-content/uploads/2016/03/PEFA-Habitat-400x300.jpg?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
-                            </div>
-                            <div class="content">
-                                <div class="author">
-                                    <a href="#">
-                                        <img class="avatar border-gray" src="../assets/img/falcon.jpg" alt="..."/>
-                                        <h4 class="title">Peregrine Falcon<br />
-                                            <small>Falco peregrinus</small>
-                                        </h4>
 
-                                    </a>
-                                </div>
-                                <p id="infobox" class="description text-center"> The peregrine falcon (Falco peregrinus), also known as the peregrine, and historically as the duck hawk in North America, is a widespread bird of prey in the family Falconidae. A large, crow-sized falcon, it has a blue-grey back, barred white underparts, and a black head. As is typical of bird-eating raptors, peregrine falcons are sexually dimorphic, females being considerably larger than males. The peregrine is renowned for its speed, reaching over 320 km/h (200 mph) during its characteristic hunting stoop (high speed dive), making it the fastest member of the animal kingdom. According to a National Geographic TV programme, the highest measured speed of a peregrine falcon is 389 km/h (242 mph).
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Twitter Feed</h4>
-                            </div>
-                            <div class="content">
-                                <a class="twitter-timeline"  href="https://twitter.com/hashtag/peregrine" data-widget-id="859136246412525570">#peregrine Tweets</a>
-                                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                            </div>
+                    <div class="col-md-12">
+                        <div class="content">
+                            <p id="infobox" class="description text-left" style="color: white;">The map given gives the picture of the species and the migrations and interactions of clusters through the use of heat maps. You can use the slider to visit any temporal value and the map will show the sightings and locations in a heat map. Play, Pause and Reset allows you to automatically play and view the process of the migrations and interactions.<p>
+                            <div id="slider" ></div>
+                            <button onclick="play()">Play</button>
+                            <button onclick="pause()">Pause</button>
+                            <button onclick="reset()">Reset</button>
+                            <div id="map"></div>
                         </div>
                     </div>
-
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card">
-                            <div class="header">
-                                <h4 class="title">Behavior Map</h4>
-                            </div>
-                            <div class="content">
-                                <p id="infobox" class="description text-left">The chart given depicts the information on the number of occurunces of the given species throughout the given timeline. These are the general sightings that has been marked so far for each year that went on.</p>
-                                <canvas id="chartCanvas" style="width:100%;"></canvas><br>
-                                <p id="infobox" class="description text-left">The map given gives the picture of the species and the migrations and interactions of clusters through the use of heat maps. You can use the slider to visit any temporal value and the map will show the sightings and locations in a heat map. Play, Pause and Reset allows you to automatically play and view the process of the migrations and interactions.<p>
-                                <div id="slider" ></div>
-                                <button onclick="play()">Play</button>
-                                <button onclick="pause()">Pause</button>
-                                <button onclick="reset()">Reset</button>
-                                <div id="map"></div>
-                            </div>
+                            <iframe src="https://ourworldindata.org/grapher/world-population-by-world-regions-post-1820" style="width: 100%; height: 600px; border: 0px none;"></iframe>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
+
+
+
         <center>
             <footer class="footer">
                 <div class="container-fluid">
@@ -201,6 +205,7 @@
                                     Team Codon on NASA International SpaceApps 2017
                                 </a>
                             </li>
+
                         </ul>
                     </nav>
                 </div>
@@ -228,10 +233,116 @@
 <script src="../assets/js/light-bootstrap-dashboard.js"></script>
 
 <script src="../leaflet_heat.js"></script>
+<script src="../falcon_geneflow.js"></script>
+<script>
+
+    var map = L.map('map').setView([37.391942, -6.557898], 1);
+    var tiles = googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3']
+    }).addTo(map);
+
+
+
+    var heatLayer = null
+    var drawingPoints = falconGenePoints;
+    function setPointsForTime(timeRange){
+        map.eachLayer(function (layer) {
+            if(layer!=tiles)
+                map.removeLayer(layer);
+        });
+
+        var shape_colors = ['#ff3f69', '#83ff92', '#84b3ff','#ffff59','pink'];
+        var shapes = drawingPoints
+                .filter(function(point){
+                    const t = new Date(point[0]);
+                    return t>timeRange[0]&&t<=timeRange[1];
+                })
+                .map(function (p) {
+                    return [p[1], p[2],p[3],p[4]]; })
+                .map(function (p){
+                    var clr =  p[3]<shape_colors.length?shape_colors[p[3]]:'orange';
+                    L.circle([p[0],p[1]], {
+                        radius: p[2]*1000,
+                        fillColor:clr,
+                        opacity:0.5,
+                        color:clr
+                    }).addTo(map);
+                });
+//        console.log(shapes.length);
+    }
+
+    min_date =  Date.parse('9/6/1985 8:19 PM'); // Date.parse('1929-12-16 09:00:00.000');
+    max_date = Date.parse('11/11/17 11:07 PM');
+    const gap = 1000*60*60*24*7*4;//*12*2; //(max_date-min_date)/100//1000*60*60*24*7*4*12;
+    const play_gap = gap/4;
+    var playing = false;
+    var currentValue = min_date;
+    $( function() {
+        $( "#slider" ).slider({
+            max: max_date,
+            min: min_date,
+            value:min_date,
+            change: function( event, ui ) {
+                var timeRange = [new Date(ui.value-gap/2), new Date(ui.value+gap/2)]
+                console.log(timeRange);
+                setPointsForTime(timeRange);
+                currentValue = ui.value;
+            }
+        });
+    } );
+
+    function play(){
+        playing = true;
+    }
+
+    function pause(){
+        playing = false;
+    }
+
+    function reset(){
+        currentValue = min_date;
+        playing = false;
+        $( "#slider" ).slider("value", currentValue );
+    }
+
+    function playMethod(){
+//        console.log(new Date(currentValue));
+//        console.log(playing);
+        if(playing && currentValue<=max_date)
+        {
+            currentValue+= play_gap;
+            $( "#slider" ).slider("value", currentValue );
+        }
+        if(playing && currentValue>max_date)
+        {
+            pause();
+        }
+        setTimeout(playMethod, 200);
+
+    }
+    playMethod();
+
+    //    L.marker([51.5, -0.09]).addTo(map);
+    //    L.circle([51.5, -0.09], {
+    //        radius: 500000,
+    //        fillColor:'red',
+    //        opacity:0.5,
+    //        color:'red'
+    //
+    //    }).addTo(map);
+
+
+
+
+
+</script>
 
 <!--<script src="birds.js"></script>-->
 <script src="../whale.js"></script>
-<script src="../falconOc.js"></script>
 <script src="../chart.js"></script>
-<script src="../custom.js"></script>
+
+<!--<script src="birds.js"></script>-->
+<!--<script src="../chart.js"></script>-->
+<!--<script src="../custom.js"></script>-->
 </html>

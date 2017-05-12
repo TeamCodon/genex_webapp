@@ -66,7 +66,7 @@ const gap = 1000*60*60*24*7* 4;//*12*2; //(max_date-min_date)/100//1000*60*60*24
 const play_gap = gap/2;
 var playing = false;
 var currentValue = min_date;
-;
+
 
 function play(){
     playing = true;
