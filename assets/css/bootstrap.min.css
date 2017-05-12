@@ -4612,6 +4612,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 
 .navbar-brand:focus, .navbar-brand:hover {
     text-decoration: none
+
 }
 
 .navbar-brand > img {

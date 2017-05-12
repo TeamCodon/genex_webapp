@@ -10,7 +10,6 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-
     <!-- Bootstrap core CSS     -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -25,14 +24,9 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
-
-
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 
     <style>
         #map { width: 100%; height: 600px; }
@@ -40,27 +34,6 @@
         .ghbtns { position: relative; top: 4px; margin-left: 5px; }
         a { color: #0077ff; }
     </style>
-    <script>
-        function initialize() {
-            var options = {atmosphere: true, center: [0, 0], zoom: 0};
-            var earth = new WE.map('earth_div', options);
-            WE.tileLayer('http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg', {
-                minZoom: 0,
-                maxZoom: 5,
-                attribution: 'NASA'
-            }).addTo(earth);
-
-            var marker = WE.marker([51.5, -0.09]).addTo(earth);
-            marker.bindPopup("<b>Hello world!</b><br>I am a popup.<br /><span style='font-size:10px;color:#999'>Tip: Another popup is hidden in Cairo..</span>", {maxWidth: 150, closeButton: true}).openPopup();
-
-            var marker2 = WE.marker([30.058056, 31.228889]).addTo(earth);
-            marker2.bindPopup("<b>Cairo</b><br>Yay, you found me!", {maxWidth: 120, closeButton: false});
-
-            var markerCustom = WE.marker([50, -9], '/img/logo-webglearth-white-100.png', 100, 24).addTo(earth);
-
-            earth.setView([51.505, 0], 6);
-        }
-    </script>
     <style>
         html, body{padding: 0; margin: 0; background-color: black;}
         .no-js #loader { display: none;  }
@@ -82,11 +55,10 @@
         });
     </script>
 </head>
-<body onload="initialize()">
+<body>
 <div class="se-pre-con"></div>
-
 <div class="wrapper">
-    <div class="sidebar" data-color="black" data-image="assets/img/sidebar-2.jpg">
+    <div class="sidebar" data-color="black" data-image="../assets/img/sidebar-2.jpg">
 
         <div class="sidebar-wrapper">
             <div class="logo">
@@ -114,7 +86,7 @@
                         <p>Impact of Migration</p>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="climateImpact.html">
                         <i class="pe-7s-sun"></i>
                         <p>Impact of Climate</p>
@@ -132,7 +104,7 @@
                         <p>Save planet Earth</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="features.html">
                         <i class="pe-7s-note2"></i>
                         <p>GeneX features</p>
@@ -152,7 +124,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" style="color: white;"href="#">How the climate (temperature) can affect Peregrine Falcon gene flow</a>
+                    <a class="navbar-brand" style="color: white;"href="#">GeneX features in nutshell</a>
                 </div>
 
             </div>
@@ -161,48 +133,70 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                    <center>
+                        <div class="col-md-12">
+                            <font color="#d3d3d3" size="3">GeneX is an online platform for analysing and visualizing the gene population, gene flow and local adaptation patterns of different species.
+                            </font>
+                        </div>
+                    </center><br><br>
                     <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Environmental Petitions</h4>
-                                <p class="category">You can find petitions to sign here.</p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover table-striped">
-                                    <thead>
-                                    <th>NO</th>
-                                    <th>Name</th>
-                                    <th>Link</th>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Wildlife Petitions</td>
-                                        <td><a href="http://www.thepetitionsite.com/environment-and-wildlife/wildlife/#hottest" target="_blank">Click on this link</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Endangered Species Petitions</td>
-                                        <td><a href="http://www.thepetitionsite.com/environment-and-wildlife/endangered-species/#hottest" target="_blank">Click on this link</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Animal Welfare Petitions</td>
-                                        <td><a href="http://www.thepetitionsite.com/animal-welfare/#hottest" target="_blank">Click on this link</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Climate Change Petitions</td>
-                                        <td><a href="http://www.thepetitionsite.com/environment-and-wildlife/global-warming-climate-change/#hottest" target="_blank">Click on this link</a></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-
-                            </div>
+                        <font color="#d3d3d3" size="5">Features
+                        </font>
+                    </div><br><br>
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <br>
+                            <center> <img src="../assets/img/2.png" height="190px" weight="100px" alt="..."/></center>
+                            <br><br>
+                            <center><h4 class="title"><b>Migration Analysis</b><br/></h4></center><br>
+                            <p id="infobox" class="description text-center"> Migration analysis section maps the migration patterns with the gene flow patterns.
+                                <br><br><br>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <br>
+                            <center> <img src="../assets/img/1.png" height="185px" weight="100px" alt="..."/></center>
+                            <br><br>
+                            <center><h4 class="title"><b>Climate Analysis</b><br/></h4></center><br>
+                            <p id="infobox" class="description text-center"> In this section, we try to map the climate changes with the gene flow patterns.
+                            </p><br><br>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <br>
+                            <center><img src="../assets/img/1.png" height="185px" weight="100px" alt="..."/></center>
+                            <br><br>
+                            <center><h4 class="title"><b>Population Analysis</b><br/></h4></center><br>
+                            <p id="infobox" class="description text-center"> Population analysis provides the analysis on the impact of human population growth on gene flow.
+                            </p><br><br>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <br>
+                            <center> <img src="../assets/img/1.png" height="185px" weight="100px" alt="..."/></center>
+                            <br><br>
+                            <center><h4 class="title"><b>Cause Analysis</b><br/></h4></center><br>
+                            <p id="infobox" class="description text-center"> Cause Analysis is powered by the social networking based crowd sourcing. Through the casue analysis we try to identify the possible casuses for different situations for the given species with time.
+                            </p><br>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <br>
+                            <center> <img src="../assets/img/3.jpg" height="185px" weight="100px" alt="..."/></center>
+                            <br><br>
+                            <center><h4 class="title"><b>Save the Earth</b><br/></h4></center><br>
+                            <p id="infobox" class="description text-center"> Do your responsibility by taking actions by signing petitions and donating for earth saving projects.
+                            </p><br><br><br>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
         <center>
             <footer class="footer">
@@ -222,14 +216,12 @@
         </center>
     </div>
 </div>
-
+</div>
 
 </body>
-
 <!--   Core JS Files   -->
 <!--<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>-->
 <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
-
 <!--  Checkbox, Radio & Switch Plugins -->
 <script src="../assets/js/bootstrap-checkbox-radio-switch.js"></script>
 
@@ -239,17 +231,6 @@
 <!--  Notifications Plugin    -->
 <script src="../assets/js/bootstrap-notify.js"></script>
 
-
-
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="../assets/js/light-bootstrap-dashboard.js"></script>
-
-
-<script src="../leaflet_heat.js"></script>
-
-<!--<script src="birds.js"></script>-->
-<script src="../whale.js"></script>
-<script src="../falconOc.js"></script>
-<script src="../chart.js"></script>
-<script src="../custom.js"></script>
 </html>
