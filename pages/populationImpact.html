@@ -272,10 +272,10 @@
         var heatPoints = populations_points
                 .filter(function (point) {
                     const t = new Date(point[0]);
-                    return t > timeRange[0] && t < timeRange[1];
+                    return true;t > timeRange[0] && t < timeRange[1];
                 })
                 .map(function (p) {
-                    return [p[1], p[2], p[3]*10000];
+                    return [p[1], p[2], 10000];
                 });
         console.log(heatPoints.length);
         if (heatLayer) {
