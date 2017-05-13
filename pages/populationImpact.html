@@ -164,7 +164,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" style="color: white;"href="#">How the human population can affect Peregrine Falcon gene flow</a>
+
+                    <a class="navbar-brand" style="color: white;"href="#">How the Human Population Can Affect Peregrine Falcon Gene Flow</a>
+					<p><font color="white" size="3">For maximum compatibility use firefox as the browser.</font></p>
+
                 </div>
 
             </div>
@@ -176,7 +179,13 @@
 
                     <div class="col-md-12">
                         <div class="content">
-                            <p id="infobox" class="description text-left" style="color: white;">The map given gives the picture of the species and the migrations and interactions of clusters through the use of heat maps. You can use the slider to visit any temporal value and the map will show the sightings and locations in a heat map. Play, Pause and Reset allows you to automatically play and view the process of the migrations and interactions.<p>
+
+                            <p id="infobox" class="description text-left" style="color: white;">
+							Global human population growth amounts to around 75 million annually, or 1.1% per year. 
+							The global population has grown from 1 billion in 1800 to 7 billion in 2012. 
+							It is expected to keep growing, and estimates have put the total population at 8.4 billion by mid-2030, and 9.6 billion by mid-2050.
+							Hence here we analyse the human population as an indicator for human activity and the effect of that on gene flow of peregrine falcon.
+							<p>
                             <div id="slider" ></div>
                             <button onclick="play()">Play</button>
                             <button onclick="pause()">Pause</button>
@@ -232,7 +241,8 @@
 <script src="../population.js"></script>
 <script>
 
-    var map = L.map('map').setView([37.391942, -6.557898], 2);
+
+    var map = L.map('map').setView([37.391942, -6.557898], 1);
     var tiles = googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
         maxZoom: 20,
         subdomains:['mt0','mt1','mt2','mt3']

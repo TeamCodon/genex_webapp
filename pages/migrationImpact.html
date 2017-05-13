@@ -128,7 +128,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" style="color: white;"href="#">Relationship between gene flow and migration of Peregrine Falcon</a>
+
+                    <a class="navbar-brand" style="color: white;"href="#">Relationship Between Gene Flow and Migration of Peregrine Falcon</a>
+					<p><font color="white" size="3">For maximum compatibility use firefox as the browser.</font></p>
+
                 </div>
 
             </div>
@@ -138,6 +141,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
+
+					<div class="content">
+                            <p id="infobox" class="description text-left" style="color: white;"> 
+							Gene flow and the migration patterns of a species is having a high end correlation. As many reserches have approched the gene flow through migration, here we anaylze gene flow probabilities with migration patterns based on sightings. 
+							<p>
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Behavior Map</h4>
@@ -145,7 +153,9 @@
                             <div class="content">
                                 <p id="infobox" class="description text-left">The chart given depicts the information on the number of occurunces of the given species throughout the given timeline. These are the general sightings that has been marked so far for each year that went on.</p>
                                 <canvas id="chartCanvas" style="width:100%;"></canvas><br>
-                                <p id="infobox" class="description text-left">The map given gives the picture of the species and the migrations and interactions of clusters through the use of heat maps. You can use the slider to visit any temporal value and the map will show the sightings and locations in a heat map. Play, Pause and Reset allows you to automatically play and view the process of the migrations and interactions.<p>
+
+                                <p id="infobox" class="description text-left">The map given gives the picture of the species and the migrations and interactions of clusters through the use of heat maps. You can use the slider to visit any temporal value and the map will show the sightings and locations in a heat map. Play, Pause and Reset allows you to automatically play and view the process of the migrations and interactions.
+								Note the gene flow probability with the migration density.<p>
                                 <div id="slider" ></div>
                                 <button onclick="play()">Play</button>
                                 <button onclick="pause()">Pause</button>

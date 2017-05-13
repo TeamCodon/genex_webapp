@@ -84,13 +84,13 @@
                         <p>Gene Flow</p>
                     </a>
                 </li>
-                <li class="active">
+                <li >
                     <a href="migrationImpact.html">
                         <i class="pe-7s-global"></i>
                         <p>Impact of Migration</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="climateImpact.html">
                         <i class="pe-7s-sun"></i>
                         <p>Impact of Climate</p>
@@ -128,7 +128,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" style="color: white;"href="#">Relationship between gene flow and migration of Peregrine Falcon</a>
+                    <a class="navbar-brand" style="color: white;"href="#">How the Climate Changes (Temperature) Can Affect Peregrine Falcon Gene Flow</a>
+					<p><font color="white" size="3">For maximum compatibility use firefox as the browser.</font></p>
                 </div>
 
             </div>
@@ -138,12 +139,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
+
+					<div class="content">
+                            <p id="infobox" class="description text-left" style="color: white;"> 
+							Recent data show that the Earth climate is undergoing a change at a rate which is outstanding in geologic history. Temperature is one of the major driving forces of gene flow and dispersal.Hence here we analyze the gene flow probabilities with temeprature variation over the time. 
+							<p>
                         <div class="card">
-                            <div class="header">
-                                <h4 class="title">Behavior Map</h4>
-                            </div>
+                            
                             <div class="content">
-                                <p id="infobox" class="description text-left">The map given gives the picture of the species and the migrations and interactions of clusters through the use of heat maps. You can use the slider to visit any temporal value and the map will show the sightings and locations in a heat map. Play, Pause and Reset allows you to automatically play and view the process of the migrations and interactions.<p>
                                 <div id="slider" ></div>
                                 <button onclick="play()">Play</button>
                                 <button onclick="pause()">Pause</button>
@@ -223,7 +226,7 @@
                     return t.getFullYear()>=timeRange[0].getFullYear() &&t.getFullYear()<=timeRange[1].getFullYear();
                 })
                 .map(function (p) {
-                    return [ p[2],p[1],p[3]*10000]; });
+                    return [p[1], p[2],p[3]*10000]; });
         heatLayer = L.heatLayer(heatPoints, {
             radius:4,
             blur:10
