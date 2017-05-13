@@ -223,7 +223,7 @@
                     return t.getFullYear()>=timeRange[0].getFullYear() &&t.getFullYear()<=timeRange[1].getFullYear();
                 })
                 .map(function (p) {
-                    return [p[1], p[2],p[3]*10000]; });
+                    return [ p[2],p[1],p[3]*10000]; });
         heatLayer = L.heatLayer(heatPoints, {
             radius:4,
             blur:10
