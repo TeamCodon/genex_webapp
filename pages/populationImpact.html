@@ -256,19 +256,21 @@
                 map.removeLayer(layer);
         });
 
+        var shape_colors = ['#ff3f69', '#83ff92', '#84b3ff','#ffff59','pink'];
         var shapes = drawingPoints
                 .filter(function(point){
                     const t = new Date(point[0]);
                     return t>timeRange[0]&&t<=timeRange[1];
                 })
                 .map(function (p) {
-                    return [p[1], p[2],p[3]]; })
+                    return [p[1], p[2],p[3],p[4]]; })
                 .map(function (p){
+                    var clr =  p[3]<shape_colors.length?shape_colors[p[3]]:'orange';
                     L.circle([p[0],p[1]], {
                         radius: p[2]*1000,
                         fillColor:'red',
                         opacity:0.5,
-                        color:'red'
+                        color:clr
                     }).addTo(map);
                 });
 
