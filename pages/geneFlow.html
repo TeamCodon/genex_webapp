@@ -19,6 +19,9 @@
     <!--  Light Bootstrap Table core CSS    -->
     <link href="../assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
 
+    <!--Custom Style-->
+    <link href="../assets/css/style.css" rel="stylesheet"/>
+
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
@@ -31,6 +34,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
 
     <style>
@@ -237,6 +241,7 @@
 
 <script src="../leaflet_heat.js"></script>
 <script src="../falcon_geneflow.js"></script>
+<script src="../falcon_geneflow_prob.js"></script>
 <script>
 
     var map = L.map('map').setView([37.391942, -6.557898], 2);
@@ -270,6 +275,24 @@
                         color:clr
                     }).addTo(map);
                 });
+        var markers = falconProbPoints
+                .filter(function(point){
+                    const t = new Date(point[0]);
+                    return t>timeRange[0]&&t<=timeRange[1];
+                })
+                .map(function (p) {
+                    return [p[1], p[2],p[3],p[4]]; })
+                .map(function (p){
+                    L.marker([p[0],p[1]]).addTo(map);
+                    L.marker([p[0],p[1]],
+                            {
+                                icon: new L.DivIcon({
+                                    className: 'marker_label',
+                                    html: '<span class="marker_label_span">'+Math.round(p[2]* 100) / 100+'</span>'
+                                })}
+                    ).addTo(map);
+                });
+
 //        console.log(shapes.length);
     }
 

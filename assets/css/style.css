@@ -1,0 +1,18 @@
+#mapid {
+    height: 580px;
+}
+
+.marker_label{
+    color: white;
+    font-size:16px;
+    transform:translateX(50px);
+}
+
+.marker_label_span{
+    position: absolute;
+    top:-45px;
+    left:25px;
+}
+
+
+/*Graph*/
